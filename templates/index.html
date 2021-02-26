@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Home</title>
+{% endblock %}
+
+{% block content %}
+<h1>Welcome!</h1>
+
+<main role="main">
+  <div class="jumbotron">
+    <div class="col-sm-8 mx-auto">
+      <h1>Favorite Movies</h1>
+      <p>Everyone likes movies! This is a site where you can add your own favorite movies, and see all the favorite movies of your friends!</p>
+      <p>See below for each person's top 10 favorite movies of all time!</p>
+
+      {% if current_user.is_authenticated %}
+
+        {% if current_user.movie_list|length == 1 %}
+        <p>
+          <a class="btn btn-primary" href="{{ url_for('add') }}" role="button">Edit your list of favorite movies &raquo;</a>
+        </p>
+        {% else %}
+        <p>
+          <a class="btn btn-primary" href="{{ url_for('add') }}" role="button">Add your list of favorite movies &raquo;</a>
+        </p>
+      {% endif %}
+
+      {% else %}
+      <p>
+        <a class="btn btn-primary" href="{{ url_for('register') }}" role="button">Create an account to add your own favorite movies! &raquo;</a>
+      </p>
+      {% endif %}
+      
+    </div>
+  </div>
+</main>
+
+<div class="container">
+  <div class="row d-flex justify-content-around">
+
+    {% for movieList in allMovieLists %}
+    <div class="col-md-3.5 m-2 p-3 fav-list-div d-flex flex-column">
+      <h2>{{ movieList['creator']['name'] }}</h2>
+      <ul class="list-group">
+        <li class="list-group-item">{{ movieList['movie1'] }}</li>
+        <li class="list-group-item">{{ movieList['movie2'] }}</li>
+        <li class="list-group-item">{{ movieList['movie3'] }}</li>
+        <li class="list-group-item">{{ movieList['movie4'] }}</li>
+        <li class="list-group-item">{{ movieList['movie5'] }}</li>
+        <li class="list-group-item">{{ movieList['movie6'] }}</li>
+        <li class="list-group-item">{{ movieList['movie7'] }}</li>
+        <li class="list-group-item">{{ movieList['movie8'] }}</li>
+        <li class="list-group-item">{{ movieList['movie9'] }}</li>
+        <li class="list-group-item">{{ movieList['movie10'] }}</li>
+      </ul>
+      {% if movieList.creator == current_user %}
+      <a href="{{ url_for('edit', id=movieList.id) }}" class="btn btn-outline-secondary edit-button mt-2 align-self-center">edit your list</a>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+{% endblock %}

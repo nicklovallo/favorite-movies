@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Account</title>
+{% endblock %}
+
+{% block content %}
+
+<div class="content-section">
+  <div class="media">
+    <div class="media-body">
+      <h1 class="account-heading">{{ current_user.name }}</h1>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="container-small">
+    <form method="POST" action="">
+      {{ form.hidden_tag() }}
+      <fieldset class="form-group">
+        <h4>Account Info</h4>
+  
+        <div class="form-group">
+          {{ form.name.label(class="form-control-label") }}
+          
+          {% if form.name.errors %}
+              {{ form.name(class="form-control form-control-lg is-invalid") }}
+              <div class="invalid-feedback">
+                  {% for error in form.name.errors %}
+                      <span>{{ error }}</span>
+                  {% endfor %}
+              </div>
+          {% else %}
+              {{ form.name(class="form-control form-control-lg") }}
+          {% endif %}
+      </div>
+  
+      </fieldset>
+      <div class="form-group">
+        {{ form.submit(class="btn btn-outline-primary") }}
+      </div>
+    </form>
+  </div>
+  
+</div>
+
+{% endblock %}

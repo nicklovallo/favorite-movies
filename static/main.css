@@ -1,0 +1,69 @@
+body {
+  background: #fafafa;
+  color: #333333;
+  margin-top: 5rem;
+}
+
+h1, h3, h4, h5, h6 {
+  color: #444444;
+}
+
+.bg-purple {
+  background-color: rgb(68, 68, 134);
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #cbd5db;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.container-small {
+  max-width: 80%;
+}
+
+.list-group-item {
+  padding: 3px 10px;
+  background-color: rgb(230, 230, 230);
+}
+
+.fav-list-div {
+  background-color: rgb(68, 68, 134);
+  width: 22rem;
+}
+
+h2 {
+  color: white;
+}
+
+.list-group-item {
+  background-color: rgb(235, 235, 235);
+}
+
+.list-group-item:nth-child(even) {
+  background-color: rgb(212, 225, 248);
+}
+
+.edit-button {
+  background-color: rgb(235, 235, 235);
+  color: black;
+  font-size: small;
+}
+
+.portfolio-tag {
+  color: skyblue;
+}

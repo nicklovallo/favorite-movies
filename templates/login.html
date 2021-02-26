@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Login</title>
+{% endblock %}
+
+{% block content %}
+
+<div class="container-small">
+  <form method="POST" action="">
+    {{ form.hidden_tag() }}
+    <fieldset class="form-group">
+      <h4>Login</h4>
+      <small class="text-muted">Login to your account. Once logged in, you can add or edit your list of favorite movies!</small>
+      <hr>
+
+      <div class="form-group">
+        {{ form.name.label(class="form-control-label") }}
+
+        {% if form.name.errors %}
+            {{ form.name(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+                {% for error in form.name.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ form.name(class="form-control form-control-lg") }}
+        {% endif %}
+    </div>
+
+    <div class="form-group">
+        {{ form.password.label(class="form-control-label") }}
+        {% if form.password.errors %}
+            {{ form.password(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+                {% for error in form.password.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ form.password(class="form-control form-control-lg") }}
+        {% endif %}
+    </div>
+
+    </fieldset>
+    <div class="form-group">
+      {{ form.submit(class="btn btn-outline-primary") }}
+    </div>
+  </form>
+</div>
+
+<div class="border-top pt-3">
+  <small class="text-muted">
+    Need an account?<a class="ml-2" href="{{ url_for('register') }}">Create Account</a>
+  </small>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Add</title>
+{% endblock %}
+
+{% block content %}
+<h1>{{ current_user.name }}</h1>
+<hr>
+<h3>{{ title }} your list of favorite movies</h3>
+<small class="text-muted">What are your top 10 favorite movies of all time? You can put them in order if you want, but most people just put their 10 favorites in no particular order.</small>
+
+<div class="container-small mt-4">
+  <form method="POST" action="">
+    {{ form.hidden_tag() }}
+    <fieldset class="form-group">
+
+      <div class="form-group row">
+        {{ form.movie1.label(class="form-control-label col-sm-0 ml-3 mr-3") }}{{ form.movie1(class="form-control form-control-sm col-sm-7") }}
+      </div>
+
+      <div class="form-group row">
+        {{ form.movie2.label(class="form-control-label col-sm-0 ml-3 mr-3") }}{{ form.movie2(class="form-control form-control-sm col-sm-7") }}
+      </div>
+
+      <div class="form-group row">
+        {{ form.movie3.label(class="form-control-label col-sm-0 ml-3 mr-3") }}{{ form.movie3(class="form-control form-control-sm col-sm-7") }}
+      </div>
+
+      <div class="form-group row">
+        {{ form.movie4.label(class="form-control-label col-sm-0 ml-3 mr-3") }}{{ form.movie4(class="form-control form-control-sm col-sm-7") }}
+      </div>
+
+      <div class="form-group row">
+        {{ form.movie5.label(class="form-control-label col-sm-0 ml-3 mr-3") }}{{ form.movie5(class="form-control form-control-sm col-sm-7") }}
+      </div>
+
+      <div class="form-group row">
+        {{ form.movie6.label(class="form-control-label col-sm-0 ml-3 mr-3") }}{{ form.movie6(class="form-control form-control-sm col-sm-7") }}
+      </div>
+
+      <div class="form-group row">
+        {{ form.movie7.label(class="form-control-label col-sm-0 ml-3 mr-3") }}{{ form.movie7(class="form-control form-control-sm col-sm-7") }}
+      </div>
+
+      <div class="form-group row">
+        {{ form.movie8.label(class="form-control-label col-sm-0 ml-3 mr-3") }}{{ form.movie8(class="form-control form-control-sm col-sm-7") }}
+      </div>
+
+      <div class="form-group row">
+        {{ form.movie9.label(class="form-control-label col-sm-0 ml-3 mr-3") }}{{ form.movie9(class="form-control form-control-sm col-sm-7") }}
+      </div>
+
+      <div class="form-group row">
+        {{ form.movie10.label(class="form-control-label col-sm-0 ml-3 mr-2") }}{{ form.movie10(class="form-control form-control-sm col-sm-7") }}
+      </div>
+
+    </fieldset>
+    <div class="form-group">
+      {{ form.submit(class="btn btn-outline-primary") }}
+    </div>
+  </form>
+</div>
+
+
+{% endblock %}
